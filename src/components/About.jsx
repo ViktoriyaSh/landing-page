@@ -4,32 +4,32 @@ function About() {
       <div className="container">
         <div className="about__grid">
           <div>
-            <h2 className="section-title">About the Summit</h2>
+            <h2 className="section-title">About the Forum</h2>
             <p className="section-subtitle">
-              A world-class corporate gathering designed to accelerate digital transformation
-              and forge strategic partnerships across the global technology ecosystem.
+              Join our People Forum on AI Adoption to explore how AI can transform the way
+              we attract, develop, engage, and support talent across the organization.
             </p>
 
             <div className="about__highlights">
               <div className="about__highlight">
-                <div className="about__highlight-icon">🚀</div>
+                <div className="about__highlight-icon">🤖</div>
                 <div className="about__highlight-text">
-                  <h4>Strategic Innovation</h4>
-                  <p>Explore cutting-edge approaches to enterprise technology, AI adoption, and scalable digital transformation frameworks.</p>
+                  <h4>Practical AI Use Cases</h4>
+                  <p>Discover emerging AI applications across the full employee lifecycle — from recruitment and onboarding to learning, performance, and retention.</p>
                 </div>
               </div>
               <div className="about__highlight">
                 <div className="about__highlight-icon">🤝</div>
                 <div className="about__highlight-text">
-                  <h4>Executive Networking</h4>
-                  <p>Connect with C-suite leaders, decision-makers, and senior executives from Fortune 500 companies across 40+ countries.</p>
+                  <h4>Exchange Ideas</h4>
+                  <p>A collaborative space to share experiences, learn from real examples, and shape the future of AI-enabled People practices together.</p>
                 </div>
               </div>
               <div className="about__highlight">
-                <div className="about__highlight-icon">💡</div>
+                <div className="about__highlight-icon">⚖️</div>
                 <div className="about__highlight-text">
-                  <h4>Actionable Insights</h4>
-                  <p>Walk away with proven strategies, frameworks, and tools you can implement in your organization immediately.</p>
+                  <h4>Responsible Adoption</h4>
+                  <p>Understand the human-centered principles needed to adopt AI responsibly — including ethics, bias, transparency, and data privacy in People work.</p>
                 </div>
               </div>
             </div>
@@ -38,18 +38,17 @@ function About() {
           <div className="about__image-block">
             <h3>Who Should Attend?</h3>
             <p>
-              This summit is designed for senior business and technology leaders who are driving
-              transformation in their organizations. Whether you are navigating AI integration,
-              scaling engineering teams, or building resilient enterprise architecture — this event
-              is built for you.
+              This forum is designed for People and HR professionals, Talent Development teams,
+              HRBPs, recruiters, people managers, and anyone interested in how AI can support
+              employee experience, learning, performance, and workforce planning.
             </p>
             <p>
-              Ideal attendees include CTOs, CIOs, VPs of Engineering, Product Leaders,
-              and Digital Transformation Directors from mid-size to enterprise organizations.
+              Together, we'll discuss practical opportunities, emerging use cases, and the
+              principles needed to bring AI into People work in a thoughtful and human-centered way.
             </p>
             <div className="about__quote">
-              "The most impactful two days in enterprise technology. Every session delivered
-              real value I could apply immediately." — Past Attendee, CTO
+              "A space to exchange ideas, learn from real examples, and shape the future
+              of AI-enabled People practices."
             </div>
           </div>
         </div>

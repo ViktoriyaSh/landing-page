@@ -14,24 +14,24 @@ function Hero() {
               Registration Open
             </div>
             <h1 className="hero__title">
-              EPAM Global <span>Leaders</span> Summit 2026
+              People Forum on <span>AI Adoption</span>
             </h1>
             <p className="hero__description">
-              The premier corporate event bringing together 500+ business leaders, technology innovators,
-              and industry experts to shape the future of enterprise technology.
+              Explore how AI can transform the way we attract, develop, engage, and support talent.
+              Join us for a day of practical insights, real use cases, and human-centered discussion.
             </p>
             <div className="hero__meta">
               <div className="hero__meta-item">
                 <span className="hero__meta-icon">📅</span>
-                September 18–19, 2026
+                September 15, 2026
               </div>
               <div className="hero__meta-item">
                 <span className="hero__meta-icon">📍</span>
-                Wyndham Grand Hotel, Warsaw, Poland
+                EPAM Office, Almaty
               </div>
               <div className="hero__meta-item">
                 <span className="hero__meta-icon">🎫</span>
-                In-Person &amp; Live Stream Available
+                In-Person Event
               </div>
             </div>
             <div className="hero__actions">
@@ -48,20 +48,20 @@ function Hero() {
           <div className="hero__card">
             <div className="hero__stat-grid">
               <div className="hero__stat">
-                <div className="hero__stat-number">500+</div>
-                <div className="hero__stat-label">Attendees</div>
+                <div className="hero__stat-number">1</div>
+                <div className="hero__stat-label">Day</div>
               </div>
               <div className="hero__stat">
-                <div className="hero__stat-number">24</div>
+                <div className="hero__stat-number">5</div>
                 <div className="hero__stat-label">Sessions</div>
               </div>
               <div className="hero__stat">
-                <div className="hero__stat-number">18</div>
+                <div className="hero__stat-number">4</div>
                 <div className="hero__stat-label">Speakers</div>
               </div>
               <div className="hero__stat">
-                <div className="hero__stat-number">2</div>
-                <div className="hero__stat-label">Days</div>
+                <div className="hero__stat-number">AI</div>
+                <div className="hero__stat-label">Focus</div>
               </div>
             </div>
           </div>

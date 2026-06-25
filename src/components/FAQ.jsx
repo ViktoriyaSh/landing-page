@@ -2,29 +2,29 @@ import { useState } from 'react'
 
 const faqs = [
   {
-    question: 'Who is this summit designed for?',
+    question: 'Who should attend the People Forum on AI Adoption?',
     answer:
-      'The EPAM Global Leaders Summit is designed for senior technology and business leaders — including CTOs, CIOs, VPs of Engineering, Product Directors, and Digital Transformation executives — from mid-size to large enterprise organizations across any industry.',
+      'This forum is designed for People/HR professionals, Talent Development teams, HRBPs, recruiters, people managers, and anyone interested in how AI can support employee experience, learning, performance, and workforce planning.',
   },
   {
-    question: 'Is there an online attendance option?',
+    question: 'Do I need technical knowledge of AI to participate?',
     answer:
-      'Yes. All keynote sessions and select panel discussions will be available via live stream. Registered online attendees will receive a private stream link 48 hours before the event. Workshop sessions are in-person only to ensure hands-on quality.',
+      'No. The forum will focus on practical applications, opportunities, and considerations for People teams rather than deep technical details. It\'s suitable for both beginners and those already experimenting with AI tools.',
   },
   {
-    question: 'What is included in the registration fee?',
+    question: 'What topics will be discussed during the forum?',
     answer:
-      'In-person registration includes full access to all sessions, workshops, and networking events across both days, plus breakfast, lunches, the evening cocktail reception, and a digital copy of all session recordings and slide decks post-event.',
+      'We\'ll cover AI use cases in talent development, recruitment, learning, employee engagement, people analytics, and HR operations, as well as responsible AI adoption, data privacy, and ethical considerations.',
   },
   {
-    question: 'Can I register multiple attendees from the same company?',
+    question: 'Will we discuss risks and limitations of AI in People work?',
     answer:
-      'Absolutely. Group registrations of 5 or more attendees receive a 20% discount. Please use the registration form for your first attendee and contact our team at events@epam.com for group pricing instructions.',
+      'Yes. A key part of the forum will focus on responsible AI usage, including bias, transparency, data security, and the importance of keeping human judgment in people-related decisions.',
   },
   {
-    question: 'What is the cancellation policy?',
+    question: 'What will participants take away from the event?',
     answer:
-      'Registrations cancelled more than 30 days before the event receive a full refund. Cancellations between 15–30 days receive a 50% refund. Within 14 days of the event, registrations are non-refundable but can be transferred to a colleague at no charge.',
+      'Participants will leave with a clearer understanding of how AI can be applied in People practices, examples of potential use cases, and ideas for how to start adopting AI in a thoughtful and human-centered way.',
   },
 ]
 
@@ -38,8 +38,7 @@ function FAQ() {
       <div className="container">
         <h2 className="section-title">Frequently Asked Questions</h2>
         <p className="section-subtitle">
-          Everything you need to know before registering. Can't find an answer?
-          Reach us at <strong>events@epam.com</strong>
+          Have a question about the forum? Find answers below, or reach us at <strong>events@epam.com</strong>
         </p>
 
         <div className="faq__list">

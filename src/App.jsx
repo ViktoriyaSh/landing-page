@@ -15,8 +15,8 @@ function Navbar() {
     <nav className="navbar">
       <div className="navbar__inner">
         <a href="#home" className="navbar__logo" onClick={scrollTo('home')}>
-          <div className="navbar__logo-mark">GL</div>
-          <span className="navbar__logo-text">Leaders Summit 2026</span>
+          <div className="navbar__logo-mark">AI</div>
+          <span className="navbar__logo-text">People Forum on AI Adoption</span>
         </a>
         <ul className="navbar__nav">
           <li><a href="#about" onClick={scrollTo('about')}>About</a></li>
@@ -39,7 +39,7 @@ function Footer() {
     <footer className="footer">
       <div className="container">
         <div className="footer__inner">
-          <div className="footer__logo">EPAM Global Leaders Summit 2026</div>
+          <div className="footer__logo">People Forum on AI Adoption — September 15, 2026</div>
           <div className="footer__links">
             <a href="#">Privacy Policy</a>
             <a href="#">Terms & Conditions</a>
