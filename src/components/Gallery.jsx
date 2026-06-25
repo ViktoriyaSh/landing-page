@@ -1,29 +1,13 @@
 import { useState, useEffect, useCallback } from 'react'
+import { useLang } from '../LanguageContext'
 
-const photos = [
-  { id: 10,  caption: 'Opening keynote session' },
-  { id: 20,  caption: 'Panel discussion on AI in HR' },
-  { id: 30,  caption: 'Workshop — hands-on practice' },
-  { id: 40,  caption: 'Networking and coffee break' },
-  { id: 50,  caption: 'Speakers on stage' },
-  { id: 60,  caption: 'Audience Q&A session' },
-  { id: 70,  caption: 'Team collaboration exercise' },
-  { id: 80,  caption: 'Closing remarks & wrap-up' },
-  { id: 90,  caption: 'Award ceremony' },
-  { id: 100, caption: 'Evening reception' },
-  { id: 110, caption: 'Registration desk' },
-  { id: 120, caption: 'Breakout group discussions' },
-].map(p => ({
-  ...p,
-  src:   `https://picsum.photos/seed/${p.id}/600/400`,
-  thumb: `https://picsum.photos/seed/${p.id}/400/280`,
-}))
+const PHOTO_IDS = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120]
 
-function Lightbox({ photo, index, total, onClose, onPrev, onNext }) {
+function Lightbox({ src, caption, index, total, onClose, onPrev, onNext }) {
   useEffect(() => {
     const onKey = (e) => {
-      if (e.key === 'Escape')    onClose()
-      if (e.key === 'ArrowLeft') onPrev()
+      if (e.key === 'Escape')     onClose()
+      if (e.key === 'ArrowLeft')  onPrev()
       if (e.key === 'ArrowRight') onNext()
     }
     document.addEventListener('keydown', onKey)
@@ -37,72 +21,51 @@ function Lightbox({ photo, index, total, onClose, onPrev, onNext }) {
   return (
     <div className="lightbox" onClick={onClose}>
       <button className="lightbox__close" onClick={onClose} aria-label="Close">✕</button>
-
-      <button
-        className="lightbox__nav lightbox__nav--prev"
-        onClick={e => { e.stopPropagation(); onPrev() }}
-        aria-label="Previous photo"
-      >
-        ‹
-      </button>
-
+      <button className="lightbox__nav lightbox__nav--prev" onClick={e => { e.stopPropagation(); onPrev() }} aria-label="Previous">‹</button>
       <div className="lightbox__content" onClick={e => e.stopPropagation()}>
-        <img
-          className="lightbox__img"
-          src={photo.src}
-          alt={photo.caption}
-        />
+        <img className="lightbox__img" src={src} alt={caption} />
         <div className="lightbox__footer">
-          <span className="lightbox__caption">{photo.caption}</span>
+          <span className="lightbox__caption">{caption}</span>
           <span className="lightbox__counter">{index + 1} / {total}</span>
         </div>
       </div>
-
-      <button
-        className="lightbox__nav lightbox__nav--next"
-        onClick={e => { e.stopPropagation(); onNext() }}
-        aria-label="Next photo"
-      >
-        ›
-      </button>
+      <button className="lightbox__nav lightbox__nav--next" onClick={e => { e.stopPropagation(); onNext() }} aria-label="Next">›</button>
     </div>
   )
 }
 
 function Gallery() {
+  const { t } = useLang()
+  const g = t.gallery
   const [activeIndex, setActiveIndex] = useState(null)
 
-  const open  = (i) => setActiveIndex(i)
   const close = useCallback(() => setActiveIndex(null), [])
-  const prev  = useCallback(() => setActiveIndex(i => (i - 1 + photos.length) % photos.length), [])
-  const next  = useCallback(() => setActiveIndex(i => (i + 1) % photos.length), [])
+  const prev  = useCallback(() => setActiveIndex(i => (i - 1 + PHOTO_IDS.length) % PHOTO_IDS.length), [])
+  const next  = useCallback(() => setActiveIndex(i => (i + 1) % PHOTO_IDS.length), [])
 
   return (
     <section className="section" id="gallery">
       <div className="container">
-        <h2 className="section-title">Photo Gallery</h2>
-        <p className="section-subtitle">
-          A glimpse into past People Forum events — inspiring conversations,
-          collaborative workshops, and meaningful connections.
-        </p>
+        <h2 className="section-title">{g.title}</h2>
+        <p className="section-subtitle">{g.subtitle}</p>
 
         <div className="gallery__grid">
-          {photos.map((photo, i) => (
+          {PHOTO_IDS.map((id, i) => (
             <button
-              key={photo.id}
+              key={id}
               className="gallery__item"
-              onClick={() => open(i)}
-              aria-label={`Open photo: ${photo.caption}`}
+              onClick={() => setActiveIndex(i)}
+              aria-label={`Open photo: ${g.photos[i]}`}
             >
               <img
                 className="gallery__thumb"
-                src={photo.thumb}
-                alt={photo.caption}
+                src={`https://picsum.photos/seed/${id}/400/280`}
+                alt={g.photos[i]}
                 loading="lazy"
               />
               <div className="gallery__overlay">
                 <span className="gallery__overlay-icon">⤢</span>
-                <span className="gallery__overlay-caption">{photo.caption}</span>
+                <span className="gallery__overlay-caption">{g.photos[i]}</span>
               </div>
             </button>
           ))}
@@ -111,9 +74,10 @@ function Gallery() {
 
       {activeIndex !== null && (
         <Lightbox
-          photo={photos[activeIndex]}
+          src={`https://picsum.photos/seed/${PHOTO_IDS[activeIndex]}/600/400`}
+          caption={g.photos[activeIndex]}
           index={activeIndex}
-          total={photos.length}
+          total={PHOTO_IDS.length}
           onClose={close}
           onPrev={prev}
           onNext={next}

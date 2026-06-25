@@ -168,6 +168,52 @@ h1, h2, h3, h4 {
   color: white !important;
 }
 
+/* ===== LANGUAGE SWITCHER ===== */
+.lang-switcher {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  margin-left: 16px;
+  background: var(--gray-100);
+  border: 1px solid var(--gray-200);
+  border-radius: 6px;
+  padding: 3px;
+}
+
+.lang-switcher__btn {
+  background: none;
+  border: none;
+  padding: 4px 10px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: var(--gray-400);
+  cursor: pointer;
+  border-radius: 4px;
+  transition: var(--transition);
+  font-family: inherit;
+  line-height: 1;
+}
+
+.lang-switcher__btn:hover {
+  color: var(--blue-dark);
+}
+
+.lang-switcher__btn--active {
+  background: var(--blue-primary);
+  color: white;
+}
+
+.lang-switcher__btn--active:hover {
+  color: white;
+}
+
+.lang-switcher__sep {
+  color: var(--gray-200);
+  font-size: 0.75rem;
+  user-select: none;
+}
+
 /* ===== HERO ===== */
 .hero {
   padding-top: 64px;
