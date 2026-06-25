@@ -2,6 +2,7 @@ import Hero from './components/Hero'
 import About from './components/About'
 import Program from './components/Program'
 import Speakers from './components/Speakers'
+import Gallery from './components/Gallery'
 import FAQ from './components/FAQ'
 import Registration from './components/Registration'
 
@@ -22,6 +23,7 @@ function Navbar() {
           <li><a href="#about" onClick={scrollTo('about')}>About</a></li>
           <li><a href="#program" onClick={scrollTo('program')}>Program</a></li>
           <li><a href="#speakers" onClick={scrollTo('speakers')}>Speakers</a></li>
+          <li><a href="#gallery" onClick={scrollTo('gallery')}>Gallery</a></li>
           <li><a href="#faq" onClick={scrollTo('faq')}>FAQ</a></li>
           <li>
             <a href="#registration" className="navbar__cta" onClick={scrollTo('registration')}>
@@ -61,6 +63,7 @@ function App() {
         <About />
         <Program />
         <Speakers />
+        <Gallery />
         <FAQ />
         <Registration />
       </main>
