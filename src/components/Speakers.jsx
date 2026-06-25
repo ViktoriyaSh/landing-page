@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from 'react'
 import { useLang } from '../LanguageContext'
+import { useInView } from '../useInView'
 
 const PHOTOS = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120].map(id => ({
   id,
@@ -82,14 +83,18 @@ function Speakers() {
   const { t } = useLang()
   const ts = t.speakers
   const [activeIndex, setActiveIndex] = useState(null)
+  const [headRef, headVisible] = useInView()
+  const [gridRef, gridVisible] = useInView(0.1)
 
   return (
     <section className="section" id="speakers">
       <div className="container">
-        <h2 className="section-title">{ts.title}</h2>
-        <p className="section-subtitle">{ts.subtitle}</p>
+        <div ref={headRef} className={`fade-up${headVisible ? ' is-visible' : ''}`}>
+          <h2 className="section-title">{ts.title}</h2>
+          <p className="section-subtitle">{ts.subtitle}</p>
+        </div>
 
-        <div className="speakers__grid">
+        <div ref={gridRef} className={`speakers__grid fade-up-children${gridVisible ? ' is-visible' : ''}`}>
           {ts.list.map((speaker, i) => {
             const meta = SPEAKER_META[i]
             return (

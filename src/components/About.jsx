@@ -1,18 +1,24 @@
 import { useLang } from '../LanguageContext'
+import { useInView } from '../useInView'
 
 function About() {
   const { t } = useLang()
   const a = t.about
+  const [headRef, headVisible] = useInView()
+  const [leftRef,  leftVisible]  = useInView()
+  const [rightRef, rightVisible] = useInView()
 
   return (
     <section className="section" id="about">
       <div className="container">
         <div className="about__grid">
           <div>
-            <h2 className="section-title">{a.title}</h2>
-            <p className="section-subtitle">{a.subtitle}</p>
+            <div ref={headRef} className={`fade-up${headVisible ? ' is-visible' : ''}`}>
+              <h2 className="section-title">{a.title}</h2>
+              <p className="section-subtitle">{a.subtitle}</p>
+            </div>
 
-            <div className="about__highlights">
+            <div ref={leftRef} className={`about__highlights fade-up-children${leftVisible ? ' is-visible' : ''}`}>
               <div className="about__highlight">
                 <div className="about__highlight-icon">🤖</div>
                 <div className="about__highlight-text">
@@ -37,7 +43,7 @@ function About() {
             </div>
           </div>
 
-          <div className="about__image-block">
+          <div ref={rightRef} className={`about__image-block fade-right${rightVisible ? ' is-visible' : ''}`}>
             <h3>{a.whoTitle}</h3>
             <p>{a.whoP1}</p>
             <p>{a.whoP2}</p>

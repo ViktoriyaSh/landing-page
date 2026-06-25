@@ -1,11 +1,14 @@
 import { useState } from 'react'
 import { useLang } from '../LanguageContext'
+import { useInView } from '../useInView'
 
 const INITIAL = { name: '', email: '', company: '', role: '' }
 
 function Registration() {
   const { t } = useLang()
   const r = t.registration
+  const [leftRef,  leftVisible]  = useInView()
+  const [rightRef, rightVisible] = useInView()
 
   const [form, setForm]         = useState(INITIAL)
   const [errors, setErrors]     = useState({})
@@ -38,7 +41,7 @@ function Registration() {
     <section className="section registration" id="registration">
       <div className="container">
         <div className="registration__grid">
-          <div className="registration__info">
+          <div ref={leftRef} className={`registration__info fade-left${leftVisible ? ' is-visible' : ''}`}>
             <h2 className="section-title">{r.title}</h2>
             <p className="section-subtitle">{r.subtitle}</p>
             <div className="registration__perks">
@@ -51,7 +54,7 @@ function Registration() {
             </div>
           </div>
 
-          <div className="form-card">
+          <div ref={rightRef} className={`form-card fade-right${rightVisible ? ' is-visible' : ''}`}>
             {submitted ? (
               <div className="form__success">
                 <div className="form__success-icon">✓</div>

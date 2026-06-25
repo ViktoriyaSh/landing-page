@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from 'react'
 import { useLang } from '../LanguageContext'
+import { useInView } from '../useInView'
 
 const PHOTO_IDS = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120]
 
@@ -38,6 +39,8 @@ function Gallery() {
   const { t } = useLang()
   const g = t.gallery
   const [activeIndex, setActiveIndex] = useState(null)
+  const [headRef, headVisible] = useInView()
+  const [gridRef, gridVisible] = useInView(0.05)
 
   const close = useCallback(() => setActiveIndex(null), [])
   const prev  = useCallback(() => setActiveIndex(i => (i - 1 + PHOTO_IDS.length) % PHOTO_IDS.length), [])
@@ -46,10 +49,12 @@ function Gallery() {
   return (
     <section className="section" id="gallery">
       <div className="container">
-        <h2 className="section-title">{g.title}</h2>
-        <p className="section-subtitle">{g.subtitle}</p>
+        <div ref={headRef} className={`fade-up${headVisible ? ' is-visible' : ''}`}>
+          <h2 className="section-title">{g.title}</h2>
+          <p className="section-subtitle">{g.subtitle}</p>
+        </div>
 
-        <div className="gallery__grid">
+        <div ref={gridRef} className={`gallery__grid fade-up-children${gridVisible ? ' is-visible' : ''}`}>
           {PHOTO_IDS.map((id, i) => (
             <button
               key={id}

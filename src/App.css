@@ -1482,6 +1482,69 @@ h1, h2, h3, h4 {
   color: var(--blue-primary);
 }
 
+/* ===== SCROLL ANIMATIONS ===== */
+.fade-up {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-up.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggered children — each child delays slightly more */
+.fade-up-children > * {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.fade-up-children.is-visible > *:nth-child(1) { opacity: 1; transform: translateY(0); transition-delay: 0.05s; }
+.fade-up-children.is-visible > *:nth-child(2) { opacity: 1; transform: translateY(0); transition-delay: 0.15s; }
+.fade-up-children.is-visible > *:nth-child(3) { opacity: 1; transform: translateY(0); transition-delay: 0.25s; }
+.fade-up-children.is-visible > *:nth-child(4) { opacity: 1; transform: translateY(0); transition-delay: 0.35s; }
+.fade-up-children.is-visible > *:nth-child(5) { opacity: 1; transform: translateY(0); transition-delay: 0.45s; }
+.fade-up-children.is-visible > *:nth-child(6) { opacity: 1; transform: translateY(0); transition-delay: 0.55s; }
+.fade-up-children.is-visible > *:nth-child(7) { opacity: 1; transform: translateY(0); transition-delay: 0.60s; }
+.fade-up-children.is-visible > *:nth-child(8) { opacity: 1; transform: translateY(0); transition-delay: 0.65s; }
+.fade-up-children.is-visible > *:nth-child(9) { opacity: 1; transform: translateY(0); transition-delay: 0.70s; }
+
+/* Fade from left */
+.fade-left {
+  opacity: 0;
+  transform: translateX(-32px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-left.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Fade from right */
+.fade-right {
+  opacity: 0;
+  transform: translateX(32px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-right.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Respect reduced-motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .fade-up, .fade-left, .fade-right,
+  .fade-up-children > * {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
 /* ===== RESPONSIVE ===== */
 @media (max-width: 1024px) {
   .speakers__grid {
