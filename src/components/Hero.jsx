@@ -1,4 +1,32 @@
+import { useState, useEffect } from 'react'
+
+const EVENT_DATE = new Date('2026-09-15T10:00:00')
+
+function useCountdown() {
+  const getTimeLeft = () => {
+    const diff = EVENT_DATE - new Date()
+    if (diff <= 0) return null
+    return {
+      days:    Math.floor(diff / (1000 * 60 * 60 * 24)),
+      hours:   Math.floor((diff / (1000 * 60 * 60)) % 24),
+      minutes: Math.floor((diff / (1000 * 60)) % 60),
+      seconds: Math.floor((diff / 1000) % 60),
+    }
+  }
+
+  const [timeLeft, setTimeLeft] = useState(getTimeLeft)
+
+  useEffect(() => {
+    const timer = setInterval(() => setTimeLeft(getTimeLeft()), 1000)
+    return () => clearInterval(timer)
+  }, [])
+
+  return timeLeft
+}
+
 function Hero() {
+  const timeLeft = useCountdown()
+
   const scrollToRegister = (e) => {
     e.preventDefault()
     document.getElementById('registration').scrollIntoView({ behavior: 'smooth' })
@@ -34,6 +62,32 @@ function Hero() {
                 In-Person Event
               </div>
             </div>
+
+            {timeLeft === null ? (
+              <div className="countdown countdown--started">
+                <span>Event Started!</span>
+              </div>
+            ) : (
+              <div className="countdown">
+                <div className="countdown__label">Event starts in</div>
+                <div className="countdown__units">
+                  {[
+                    { value: timeLeft.days,    label: 'Days' },
+                    { value: timeLeft.hours,   label: 'Hours' },
+                    { value: timeLeft.minutes, label: 'Minutes' },
+                    { value: timeLeft.seconds, label: 'Seconds' },
+                  ].map(({ value, label }) => (
+                    <div className="countdown__unit" key={label}>
+                      <div className="countdown__number">
+                        {String(value).padStart(2, '0')}
+                      </div>
+                      <div className="countdown__unit-label">{label}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
             <div className="hero__actions">
               <a href="#registration" className="btn-primary" onClick={scrollToRegister}>
                 Register Now →

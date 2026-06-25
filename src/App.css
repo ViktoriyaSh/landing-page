@@ -355,6 +355,76 @@ h1, h2, h3, h4 {
   font-weight: 500;
 }
 
+/* ===== COUNTDOWN ===== */
+.countdown {
+  margin-bottom: 32px;
+}
+
+.countdown__label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 12px;
+}
+
+.countdown__units {
+  display: flex;
+  gap: 12px;
+}
+
+.countdown__unit {
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: var(--radius);
+  padding: 14px 18px;
+  text-align: center;
+  min-width: 72px;
+  backdrop-filter: blur(4px);
+}
+
+.countdown__number {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: white;
+  line-height: 1;
+  letter-spacing: -1px;
+  font-variant-numeric: tabular-nums;
+}
+
+.countdown__unit-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: rgba(255,255,255,0.6);
+  margin-top: 4px;
+  font-weight: 600;
+}
+
+.countdown--started {
+  display: flex;
+  align-items: center;
+}
+
+.countdown--started span {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #7effd4;
+  letter-spacing: -0.5px;
+}
+
+@media (max-width: 480px) {
+  .countdown__unit {
+    min-width: 60px;
+    padding: 10px 12px;
+  }
+
+  .countdown__number {
+    font-size: 1.7rem;
+  }
+}
+
 /* ===== ABOUT ===== */
 .about__grid {
   display: grid;
